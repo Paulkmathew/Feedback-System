@@ -1,0 +1,44 @@
+Future<void> _generateAndDownloadPdf(String description, Map<String, Map<String, int>> data) async {
+    final pdf = pw.Document();
+
+    pdf.addPage(pw.Page(
+      build: (pw.Context context) {
+        return pw.Center(
+          child: pw.Column(
+            children: [
+              pw.Header(
+                level: 0,
+                child: pw.Text('Feedback Report for $description', style: pw.TextStyle(fontSize: 20)),
+              ),
+              pw.Divider(),
+              pw.SizedBox(height: 20),
+              pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: data.entries.map((entry) {
+                  String question = entry.key;
+                  Map<String, int> feedbackData = entry.value;
+
+                  return pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      pw.Text(question, style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+                      pw.Text(feedbackData.entries.map((entry) {
+                        return '${entry.value} of ${feedbackData.values.reduce((a, b) => a + b)} says ${entry.key}';
+                      }).join(', ')),
+                      pw.SizedBox(height: 10),
+                      pw.Text('Highest Review: ${feedbackData.keys.firstWhere((key) => feedbackData[key] == feedbackData.values.reduce((a, b) => a > b ? a : b), orElse: () => '')}', style: pw.TextStyle(color: PdfColor.fromInt(Colors.red.value))),
+                      pw.SizedBox(height: 10),
+                    ],
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+        );
+      },
+    ));
+
+    final pdfData = await pdf.save();
+
+    Printing.sharePdf(bytes: pdfData, filename: '$description Feedback Report.pdf');
+  }

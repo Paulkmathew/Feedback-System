@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "746089893614",
+    "project_id": "stockmbits",
+    "storage_bucket": "stockmbits.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746089893614:android:bcfa236c1e6e24a514edff",
+        "android_client_info": {
+          "package_name": "com.example.getaccess"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjjW6c5YkoEZKnEOD7FRekNCeDFHbQUTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
