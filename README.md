@@ -9,7 +9,7 @@ Clone the Repository
 
 Clone this repository to your local machine using:
 
-bash
+
 
 git clone https://github.com/Paulkmathew/Feedback-System.git
 
@@ -17,16 +17,15 @@ git clone https://github.com/Paulkmathew/Feedback-System.git
 
 Navigate into the project directory and install dependencies:
 
-arduino
 
-cd your-repository
+
+cd your-repository 
+
 flutter pub get
 
 # Run the Application
 
 To run the application on a connected device or emulator, use:
-
-arduino
 
 flutter run
 
