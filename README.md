@@ -1,4 +1,4 @@
-# Flutter Application README
+# MBITS Feedback System README
 
 Welcome to our Flutter application repository! This document will guide you through setting up the project and provide basic information about its structure.
 Getting Started
