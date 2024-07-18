@@ -41,7 +41,7 @@ class _AdminLoginState extends State<AdminLogin> {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
-    if (username == 'admin' && password == 'admin') {
+    if (username == 'admin' && password == 'admin@mbits') {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => AdminHome()),
